@@ -21,8 +21,8 @@ def s_block_inverse(input_data):
         [0x6, 0x7, 0x4, 0x5, 0x2, 0x3, 0x0, 0x1]
     ]
     
-    t1 = (input_data & 0xF0) >> 4  # перша тетрада
-    t2 = input_data & 0x0F  # друга тетрада
+    t1 = (input_data & 0xF0) >> 4 
+    t2 = input_data & 0x0F
     
     output_data = (table_inverse[0][t1] << 4) | table_inverse[1][t2]
     return output_data
