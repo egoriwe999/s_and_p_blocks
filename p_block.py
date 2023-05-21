@@ -1,18 +1,19 @@
-def p_block(input_data):
-     p_table = [
-          #1, 5, 2, 0, 3, 7, 4, 6
-          3, 2, 1, 0, 7, 6, 5, 4
+def p_block_forward(input_data):
+     table = [
+          1, 5, 2, 0, 3, 7, 4, 6
      ]
      output_data = 0
      for i in range(8):
-          bit = (input_data >> i) & 0x1
-          output_data |= (bit << p_table[i])
+          tetrad = (input_data >> i) & 0x1
+          output_data |= (tetrad << table[i])
      return output_data
 
-input_data = 47
-
-a = p_block(input_data)
-b = p_block(a)
-
-print(a)
-print(b)
+def p_block_inverse(input_data):
+    table_inverse = [
+        3, 0, 2, 4, 6, 1, 7, 5
+    ]
+    output_data = 0
+    for i in range(8):
+        tetrad = (input_data >> i) & 0x1
+        output_data |= (tetrad << table_inverse[i])
+    return output_data
